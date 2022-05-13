@@ -4,7 +4,7 @@ import random
 #dannywashere
 
 class CharacterProfileSheet:
-    def __init__(self, name: str, behaviour: Behaviour = None) -> None:
+    def __init__(self, name, behaviour = None) :
         """
         Character Sheet containing the traits of a character.
         :param name: Name of the Character
@@ -59,7 +59,7 @@ class CharacterProfileSheet:
         self.sleight_of_hand = 0
         self.stealth = 0
         self.survival = 0
-
+        self.smell = 'smells of piss'
         self.proficiencies = []
 
     @property
@@ -73,5 +73,6 @@ class CharacterProfileSheet:
 
 # To run the code. This should be removed but is left here as an example
 if __name__ == "__main__":
-    char = CharacterProfileSheet(name="Hairy Piles")
-    print(f"{char.name} is {char.behaviour}")
+    Deez = CharacterProfileSheet(name="Deez Nutz")
+    print(f"{Deez.name} is {Deez.behaviour} because he {Deez.smell}")
+    print(Deez.name + " is " + Deez.behaviour + " because he " + Deez.smell )
