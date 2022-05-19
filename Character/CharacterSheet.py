@@ -1,25 +1,25 @@
 from types import BuiltinMethodType
-from Behaviours import Behaviour
+from Personalities import Personality
 import random
 
 
 class CharacterProfileSheet:
-    def __init__(self, name: str, behaviour: Behaviour = None) -> None:
+    def __init__(self, name: str, personality: Personality = None) -> None:
         """
         Character Sheet containing the traits of a character.
         :param name: Name of the Character
-        :param behaviour: Behaviour type to define Character's behaviour
+        :param personality: Personality type to define Character's personality
         """
 
         # Name of character
         self.__NAME = name
 
         # If behaviour hasn't been assigned, give it a random one.
-        if behaviour is None:
+        if personality is None:
             # Sorts the Behaviour Enums into a list and picks one at random
-            self.__BEHAVIOUR = random.choice(list(Behaviour))
+            self.__PERSONALITY = random.choice(list(Personality))
         else:
-            self.__BEHAVIOUR = behaviour
+            self.__PERSONALITY = personality
 
         # TODO Create a character generator script where it does Behaviour = random.choice etc rather than putting it
         #   in here
@@ -60,11 +60,28 @@ class CharacterProfileSheet:
         self.stealth = 0
         self.survival = 0
 
+        # Generally consists of skills, ability to wield stuff etc.
+        # eg light armour, hand crossbows, rapiers, thieves tools, playing cards, carpenters tools
         self.proficiencies = []
 
+        # list of languages
+        self.languages = []
+
+        # Generally a perk
+        self.expertise = "When you make a Dex check, or using thieves tools, your proficiency bonus is doubled"
+
+        self.current_hp = 0
+        self.temp_hp = 0
+        self.dice_type = "DICE ENUM GOES HERE"
+        self.death_saves = []
+
+        self.inventory = ["WEAPON.ENUM, EQUIPMENT.TOOL, FOOD.TYPE"]
+        self.special_attack_move = "Sneak Attack"
+        self.traits = [{"thieves can't": "you can detect symbols", "Brave":"immunity to Frightened"}]
+
     @property
-    def behaviour(self):
-        return self.__BEHAVIOUR.name
+    def personality(self):
+        return self.__PERSONALITY.name
 
     @property
     def name(self):
@@ -74,4 +91,4 @@ class CharacterProfileSheet:
 # To run the code. This should be removed but is left here as an example
 if __name__ == "__main__":
     char = CharacterProfileSheet(name="Hairy Piles")
-    print(f"{char.name} is {char.behaviour}")
+    print(f"{char.name} is {char.personality}")
