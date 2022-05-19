@@ -1,10 +1,12 @@
+import abc
 from types import BuiltinMethodType
 from Personalities import Personality
 import random
 #dannywashere
 
-class CharacterProfileSheet:
-    def __init__(self, name: str, personality: Personality = None) -> None:
+
+class BaseCharacterProfileSheet:
+    def __init__(self, name, personality: Personality) -> None:
         """
         Character Sheet containing the traits of a character.
         :param name: Name of the Character
@@ -13,13 +15,7 @@ class CharacterProfileSheet:
 
         # Name of character
         self.__NAME = name
-
-        # If behaviour hasn't been assigned, give it a random one.
-        if personality is None:
-            # Sorts the Behaviour Enums into a list and picks one at random
-            self.__PERSONALITY = random.choice(list(Personality))
-        else:
-            self.__PERSONALITY = personality
+        self.__PERSONALITY = personality
 
         # TODO Create a character generator script where it does Behaviour = random.choice etc rather than putting it
         #   in here
@@ -33,7 +29,6 @@ class CharacterProfileSheet:
         self.saving_throw_charisma = 0
 
         #######################
-
         self.__strength = 0
         self.__dexterity = 0
         self.__constitution = 0
@@ -77,7 +72,7 @@ class CharacterProfileSheet:
 
         self.inventory = ["WEAPON.ENUM, EQUIPMENT.TOOL, FOOD.TYPE"]
         self.special_attack_move = "Sneak Attack"
-        self.traits = [{"thieves can't": "you can detect symbols", "Brave":"immunity to Frightened"}]
+        self.traits = [{"thieves can't": "you can detect symbols", "Brave": "immunity to Frightened"}]
 
     @property
     def personality(self):
@@ -86,9 +81,3 @@ class CharacterProfileSheet:
     @property
     def name(self):
         return str(self.__NAME)
-
-
-# To run the code. This should be removed but is left here as an example
-if __name__ == "__main__":
-    char = CharacterProfileSheet(name="Hairy Piles")
-    print(f"{char.name} is {char.personality}")
