@@ -27,9 +27,11 @@ class CharacterProfile(BaseCharacterProfileSheet):
         """Uses the names json to generate a name at random"""
         with open("Names.json") as fp:
             list_of_names = json.load(fp)
-            number_of_names = random.randint(1, 4)
             name = ""
-            print(f"number of names: {number_of_names}")
+
+            # Determine how many names the full name is to have.
+            number_of_names = random.randint(1, 4)
+
             for i in range(number_of_names):
                 # Pick a name at random
                 name += list_of_names[random.randint(0, len(list_of_names) - 1)]
@@ -37,8 +39,6 @@ class CharacterProfile(BaseCharacterProfileSheet):
                 # Add a spacing if it's not the last name
                 if i + 1 < number_of_names:
                     name += " "
-        print(f"Full name: {name}")
-
         return name
 
 if __name__ == '__main__':

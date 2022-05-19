@@ -17,9 +17,6 @@ class BaseCharacterProfileSheet:
         self.__NAME = name
         self.__PERSONALITY = personality
 
-        # TODO Create a character generator script where it does Behaviour = random.choice etc rather than putting it
-        #   in here
-
         # Saving Throws for if you really fuck up.
         self.saving_throw_strength = 0
         self.saving_throw_dexterity = 0
