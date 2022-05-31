@@ -2,11 +2,12 @@ import json
 import random
 
 from CharacterSheet import BaseCharacterProfileSheet
-from Personalities import Personality
+from Enums import Personality, Language, Item
 
 
 class CharacterProfile(BaseCharacterProfileSheet):
     """This is primarily used as an example of how to create PLAYABLE characters"""
+
     def __init__(self, name=None, personality=None):
 
         if name is None:
@@ -20,7 +21,11 @@ class CharacterProfile(BaseCharacterProfileSheet):
         else:
             self.__PERSONALITY = personality
 
-        super().__init__(self.__NAME, self.__PERSONALITY)
+        super().__init__(name=self.__NAME,
+                         personality=self.__PERSONALITY,
+                         languages=[Language.ABYSSAL, Language.COMMON],
+                         expertise="pee pee poo poo",
+                         inventory=[Item.WEAPON.SWORD, Item.FOOD.APPLE, Item.TOOL.THIEVES_TOOL])
 
     @staticmethod
     def name_generator():
@@ -41,6 +46,8 @@ class CharacterProfile(BaseCharacterProfileSheet):
                     name += " "
         return name
 
+
 if __name__ == '__main__':
     ch_char = CharacterProfile()
-    print(f"{ch_char.name} is {ch_char.personality}")
+    print(
+        f"{ch_char.name} is {ch_char.personality} with an expertise of {ch_char.expertise} has an inventory of: {ch_char.inventory[0].name}")
