@@ -18,6 +18,8 @@ class Item:
     TOOL = Tool
     FOOD = Food
 
+    # Kind of cheating here huehue
     @classmethod
-    def all(cls):
-        return [value for name, value in vars(cls).items() if name.isupper()]
+    def types(cls):
+        return Enum
+        # return [value for name, value in vars(cls).items()]

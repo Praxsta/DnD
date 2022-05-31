@@ -10,7 +10,7 @@ class BaseCharacterProfileSheet(ABC):
     def __init__(self, name: str, personality: Personality,
                  languages: List[Language],
                  expertise,
-                 inventory: List[Item.all],
+                 inventory: List[Item.types()],
                  saving_throw_strength=0,
                  saving_throw_dexterity=0,
                  saving_throw_constitution=0,
@@ -153,7 +153,7 @@ class BaseCharacterProfileSheet(ABC):
         # 3 successes vs 3 fails
         self.death_saves = death_saves
 
-        self.inventory: List[Item] = inventory
+        self.inventory: List[Item.types()] = inventory
 
         # eg "Sneak Attack"
         self.special_attack_move = special_attack_move
