@@ -2,8 +2,8 @@ import json
 import random
 
 from CharacterSheet import BaseCharacterProfileSheet
-from Enums import Personality, Language, Item
-
+from DalaranDnD.Items import Item
+from DalaranDnD.Character import Personality, Language
 
 class CharacterProfile(BaseCharacterProfileSheet):
     """This is primarily used as an example of how to create PLAYABLE characters"""

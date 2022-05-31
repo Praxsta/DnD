@@ -1,4 +1,5 @@
-from Enums import Personality, Language, Item
+from DalaranDnD.Character import Personality, Language
+from DalaranDnD.Items import Item
 from typing import List, Dict
 from abc import ABC
 
