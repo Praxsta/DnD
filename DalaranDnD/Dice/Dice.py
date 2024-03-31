@@ -22,23 +22,23 @@ class D6(Dice):
 
 class D8(Dice):
     def roll(self):
-        output = randint(1, 4)
+        output = randint(1, 8)
         return output
 
 
 class D10(Dice):
     def roll(self):
-        output = randint(1, 4)
+        output = randint(1, 10)
         return output
 
 
 class D12(Dice):
     def roll(self):
-        output = randint(1, 4)
+        output = randint(1, 12)
         return output
 
 
 class D20(Dice):
     def roll(self):
-        output = randint(1, 4)
+        output = randint(1, 20)
         return output
