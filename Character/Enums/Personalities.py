@@ -2,9 +2,9 @@ from enum import Enum
 from typing import List
 
 
-class Behaviour(Enum):
+class Personality(Enum):
     """
-    Behaviour Enums to define what sort of Behaviour an entity is to have.
+    Personality Enums to define what sort of Behaviour an entity is to have.
     """
     AGGRESSION = 0
     BRAWLER = 1
