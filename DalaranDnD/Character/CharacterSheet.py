@@ -43,8 +43,9 @@ class BaseCharacterProfileSheet(ABC):
                  stealth=0,
                  survival=0,
                  proficiencies=None,
-                 current_hp=0,
-                 temp_hp=0,
+                 hp_max=10,
+                 hp_current=0,
+                 hp_temp=0,
                  hit_dice_type="DICE ENUM GOES HERE",
                  death_saves=None,
                  special_attack_move="Sneak Attack",
@@ -87,8 +88,9 @@ class BaseCharacterProfileSheet(ABC):
         :param stealth: int
         :param survival: int
         :param proficiencies: int
-        :param current_hp: int
-        :param temp_hp: int
+        :param hp_max: int
+        :param hp_current: int
+        :param hp_temp: int
         :param hit_dice_type: Dice Enum
         :param death_saves: #TODO work out whether this needs to be in here? I think its defaults to Fail,F,F vs Success,S,S
         :param inventory: List of Item Values which are Enums Eg Item.Weapon.SWORD
@@ -145,8 +147,10 @@ class BaseCharacterProfileSheet(ABC):
         # Generally a perk, eg "When you make a Dex check, or using thieves tools, your proficiency bonus is doubled"
         self.expertise = expertise
 
-        self.current_hp = current_hp
-        self.temp_hp = temp_hp
+        # HP stuff
+        self.current_hp = hp_current
+        self.temp_hp = hp_temp
+        self.hp_max = hp_max
 
         # Dice Enum goes here
         self.hit_dice_type = hit_dice_type
