@@ -5,6 +5,7 @@ from CharacterSheet import BaseCharacterProfileSheet
 from DalaranDnD.Items import Item
 from DalaranDnD.Character import Personality, Language, ClassHP
 
+
 class CharacterProfile(BaseCharacterProfileSheet):
     """This is primarily used as an example of how to create PLAYABLE characters"""
 
@@ -24,7 +25,6 @@ class CharacterProfile(BaseCharacterProfileSheet):
                          personality=personality,
                          languages=[Language.ABYSSAL, Language.COMMON],
                          class_type=class_type,
-                         expertise="pee pee poo poo",
                          inventory=[Item.WEAPON.SWORD, Item.FOOD.APPLE, Item.TOOL.THIEVES_TOOL])
 
     @staticmethod
@@ -50,4 +50,8 @@ class CharacterProfile(BaseCharacterProfileSheet):
 if __name__ == '__main__':
     ch_char = CharacterProfile()
     print(
-        f"{ch_char.name} is a {ch_char.class_type} with personality of {ch_char.personality} with an expertise of {ch_char.expertise} has an inventory of: {ch_char.inventory[0].name}")
+        f"{ch_char.name}\n"
+        f"class: {ch_char.class_type}\n"
+        f"personality: {ch_char.personality}\n"
+        f"expertise: {ch_char.expertise}\n"
+        f"inventory: {ch_char.inventory[0].name}\n")

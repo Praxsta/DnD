@@ -4,7 +4,7 @@ from typing import List
 
 class ClassHP(Enum):
     """
-    Class types and their base HP at Level 1.
+    Class types and their base HP at Level 1, their hp also represent the dice if you want to level based off rolling.
     """
     SORCERER = 6,
     WIZARD = 6,

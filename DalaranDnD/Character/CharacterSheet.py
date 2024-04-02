@@ -13,7 +13,7 @@ class BaseCharacterProfileSheet(ABC):
                  class_type: ClassHP,
                  personality: Personality,
                  languages: List[Language],
-                 expertise,
+                 # expertise,
                  inventory: List[Item.types()],
                  level=1,
                  saving_throw_strength=0,
@@ -152,7 +152,7 @@ class BaseCharacterProfileSheet(ABC):
         self.languages: List[Language] = languages
 
         # Generally a perk, eg "When you make a Dex check, or using thieves tools, your proficiency bonus is doubled"
-        self.expertise = expertise
+        # self.expertise = expertise
 
         # HP stuff
         self.current_hp = hp_current
@@ -170,7 +170,8 @@ class BaseCharacterProfileSheet(ABC):
         # eg "Sneak Attack"
         self.special_attack_move = special_attack_move
 
-        # eg [{"thieves can't": "you can detect symbols", "Brave": "immunity to Frightened"}]
+        # features/traits.
+        # eg [{"thieves can't (language)": "you can detect symbols + you speak in code", "Brave": "immunity to Frightened"}]
         self.traits = traits
 
     @property
