@@ -3,27 +3,27 @@ import random
 
 from CharacterSheet import BaseCharacterProfileSheet
 from DalaranDnD.Items import Item
-from DalaranDnD.Character import Personality, Language
+from DalaranDnD.Character import Personality, Language, ClassHP
 
 class CharacterProfile(BaseCharacterProfileSheet):
     """This is primarily used as an example of how to create PLAYABLE characters"""
 
-    def __init__(self, name=None, personality=None):
+    def __init__(self, name=None, personality=None, class_type=None):
 
         if name is None:
-            self.__NAME = self.name_generator()
-        else:
-            self.__NAME = name
+            name = self.name_generator()
 
         if personality is None:
             # Sorts the Personality Enums into a list and picks one at random
-            self.__PERSONALITY = random.choice(list(Personality))
-        else:
-            self.__PERSONALITY = personality
+            personality = random.choice(list(Personality))
 
-        super().__init__(name=self.__NAME,
-                         personality=self.__PERSONALITY,
+        if class_type is None:
+            class_type = random.choice(list(ClassHP))
+
+        super().__init__(name=name,
+                         personality=personality,
                          languages=[Language.ABYSSAL, Language.COMMON],
+                         class_type=class_type,
                          expertise="pee pee poo poo",
                          inventory=[Item.WEAPON.SWORD, Item.FOOD.APPLE, Item.TOOL.THIEVES_TOOL])
 
@@ -50,4 +50,4 @@ class CharacterProfile(BaseCharacterProfileSheet):
 if __name__ == '__main__':
     ch_char = CharacterProfile()
     print(
-        f"{ch_char.name} is {ch_char.personality} with an expertise of {ch_char.expertise} has an inventory of: {ch_char.inventory[0].name}")
+        f"{ch_char.name} is a {ch_char.class_type} with personality of {ch_char.personality} with an expertise of {ch_char.expertise} has an inventory of: {ch_char.inventory[0].name}")

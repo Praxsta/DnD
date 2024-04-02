@@ -1,5 +1,5 @@
-from DalaranDnD.Character import Personality, Language
-from DalaranDnD.Items import Item
+from Character import Personality, Language, ClassHP
+from Items import Item
 from typing import List, Dict
 from abc import ABC
 
@@ -8,10 +8,14 @@ from abc import ABC
 
 
 class BaseCharacterProfileSheet(ABC):
-    def __init__(self, name: str, personality: Personality,
+    def __init__(self,
+                 name: str,
+                 class_type: ClassHP,
+                 personality: Personality,
                  languages: List[Language],
                  expertise,
                  inventory: List[Item.types()],
+                 level=1,
                  saving_throw_strength=0,
                  saving_throw_dexterity=0,
                  saving_throw_constitution=0,
@@ -57,6 +61,7 @@ class BaseCharacterProfileSheet(ABC):
         :param personality: Personality Enum
         :param languages: List of Language Enums
         :param expertise: string of what the expertise is
+        :param level: the level of character.
         :param saving_throw_strength: int of saving throw for when you really fuck up
         :param saving_throw_dexterity: int of saving throw for when you really fuck up
         :param saving_throw_constitution: int of saving throw for when you really fuck up
@@ -101,6 +106,8 @@ class BaseCharacterProfileSheet(ABC):
         # Name of character
         self.__NAME = name
         self.__PERSONALITY = personality
+        self.__CLASS_TYPE = class_type
+        self.__LEVEL = level
 
         # Saving Throws for if you really fuck up.
         self.saving_throw_strength = saving_throw_strength
@@ -173,3 +180,7 @@ class BaseCharacterProfileSheet(ABC):
     @property
     def name(self):
         return str(self.__NAME)
+
+    @property
+    def class_type(self):
+        return str(self.__CLASS_TYPE.name)
